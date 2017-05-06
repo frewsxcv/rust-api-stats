@@ -27,7 +27,22 @@ impl rustc_lint::LintPass for BitMask {
 }
 
 impl<'a, 'tcx> rustc_lint::LateLintPass<'a, 'tcx> for BitMask {
+    /*
     fn check_expr(&mut self, _cx: &rustc_lint::LateContext<'a, 'tcx>, e: &'tcx rustc_hir::Expr) {
         println!("{:?}", e);
     }
+    */
+
+    // check for unsafe blocks
+    fn check_block(&mut self, ctx: &rustc_lint::LateContext<'a, 'tcx>, block: &'tcx rustc_hir::Block) {
+        if is_unsafe_block(block) {
+            println!("crate: {:?}", ctx.krate);
+            println!("block: {:?}", block);
+            println!("encountered unsafe block");
+        }
+    }
+}
+
+fn is_unsafe_block(block: &rustc_hir::Block) -> bool {
+    block.rules == rustc_hir::BlockCheckMode::UnsafeBlock(rustc_hir::UnsafeSource::CompilerGenerated)
 }
