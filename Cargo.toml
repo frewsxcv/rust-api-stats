@@ -1,0 +1,2 @@
+[workspace]
+members = ["rust-api-stats-lint", "rust-api-stats-plugin"]
