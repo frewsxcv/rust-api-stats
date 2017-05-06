@@ -4,9 +4,9 @@
 extern crate rustc_plugin;
 use rustc_plugin::Registry;
 
-extern crate api_stats;
+extern crate api_stats_lint;
 
 #[plugin_registrar]
 pub fn plugin_registrar(reg: &mut Registry) {
-    api_stats::register_plugins(reg);
+    api_stats_lint::register_plugins(reg);
 }

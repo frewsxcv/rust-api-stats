@@ -1,5 +1,5 @@
 [package]
-name = "api-stats"
+name = "api-stats-lint"
 version = "0.1.0"
 authors = ["Corey Farwell <coreyf@rwell.org>"]
 

@@ -8,4 +8,4 @@ name = "api_stats_plugin"
 plugin = true
 
 [dependencies]
-api-stats = {path = "../rust-api-stats-lint"}
+api-stats-lint = {path = "../rust-api-stats-lint"}
