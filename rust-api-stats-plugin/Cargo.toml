@@ -3,4 +3,9 @@ name = "api-stats-plugin"
 version = "0.1.0"
 authors = ["Corey Farwell <coreyf@rwell.org>"]
 
+[lib]
+name = "api_stats_plugin"
+plugin = true
+
 [dependencies]
+api-stats = {path = "../rust-api-stats-lint"}

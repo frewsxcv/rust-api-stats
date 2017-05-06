@@ -8,6 +8,10 @@ use rustc::lint as rustc_lint;
 use rustc::lint::LintArray;
 use rustc::hir as rustc_hir;
 
+pub fn register_plugins(reg: &mut rustc_plugin::Registry) {
+    reg.register_late_lint_pass(Box::new(BitMask));
+}
+
 declare_lint! {
     pub BAD_BIT_MASK,
     Warn,
@@ -23,7 +27,7 @@ impl rustc_lint::LintPass for BitMask {
 }
 
 impl<'a, 'tcx> rustc_lint::LateLintPass<'a, 'tcx> for BitMask {
-    fn check_expr(&mut self, cx: &rustc_lint::LateContext<'a, 'tcx>, e: &'tcx rustc_hir::Expr) {
+    fn check_expr(&mut self, _cx: &rustc_lint::LateContext<'a, 'tcx>, e: &'tcx rustc_hir::Expr) {
         println!("{:?}", e);
     }
 }
